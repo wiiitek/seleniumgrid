@@ -1,0 +1,8 @@
+
+# IntelliJ
+/without-marionette.iml
+/.idea/
+!/.idea/codeStyles/
+
+# Maven
+/target/
