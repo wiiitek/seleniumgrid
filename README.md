@@ -12,7 +12,7 @@ Sample Setup
  
 ### Web Driver usage in JAVA code
 
-Set `"marionette"` capability of required web driver to `false` (see [SeleniumGridTest](src/test/java/pl/kubiczak/selenium/grid/firefox/without/marionette/SeleniumGridTest.java#L25) class).
+Set `"marionette"` capability of required web driver to `false` (see [SeleniumGridTest](src/test/java/pl/kubiczak/selenium/grid/firefox/without/marionette/SeleniumGridTest.java#L27) class).
 
 ### Selenium Grid setup
 

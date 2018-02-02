@@ -1,6 +1,6 @@
 package pl.kubiczak.selenium.grid.firefox.without.marionette;
 
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
 
 import java.net.MalformedURLException;
@@ -8,7 +8,9 @@ import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -31,10 +33,12 @@ public class SeleniumGridTest {
 
   @Test
   public void shouldRetrievePageTitle() {
-    webDriver.get("https://saucelabs.com/test/guinea-pig");
-    String title = webDriver.getTitle();
+    webDriver.get("https://www.whatismybrowser.com/");
 
-    assertThat(title, equalTo("I am a page title - Sauce Labs"));
+    WebElement mainEl = webDriver.findElement(By.cssSelector("div.string-major"));
+    String browserInfo = mainEl.getText();
+
+    assertThat(browserInfo, startsWith("Firefox 38"));
   }
 
   @After
