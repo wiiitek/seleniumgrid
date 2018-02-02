@@ -39,7 +39,11 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 
         java -Dwebdriver.firefox.marionette=false -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.8.1.jar  -role node -nodeConfig node-config.json
 
+#### Without the JSON config file
 
+Instead of Selenium node configuration in JSON file we could specify provided capabilities with `-hub` and `-browser` parameters:
+
+        java [...] -jar selenium-server-standalone-3.8.1.jar -role node -hub "http://localhost:4444" -browser "acceptInsecureCerts=true,browserName=firefox,marionette=false,platform=WIN8_1"
 
 [selenium-grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
 [geckodriver]: https://github.com/mozilla/geckodriver
