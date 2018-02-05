@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SeleniumGridTest {
@@ -22,13 +22,11 @@ public class SeleniumGridTest {
 
   @Before
   public void retrieveWebDriver() throws MalformedURLException {
-    FirefoxOptions opts = new FirefoxOptions();
 
-    opts.setCapability("marionette", false);
-    // or
-    //opts.setLegacy(true);
+    DesiredCapabilities capabilities = new DesiredCapabilities();
+    capabilities.setCapability("marionette", false);
 
-    webDriver = new RemoteWebDriver(new URL(HUB_URL), opts);
+    webDriver = new RemoteWebDriver(new URL(HUB_URL), capabilities);
   }
 
   @Test

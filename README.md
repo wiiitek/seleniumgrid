@@ -5,8 +5,6 @@ This project is to show how to use [Selenium Grid][selenium-grid] with old Firef
 
 From version 3.x Selenium uses [geckodriver] for interactions with Firefox browser and this driver supports Firefox version 55 and greater (see [Gecko Supported Firefoxen][supported-firefoxen]).
 
-So if we want to use older Firefox version, we need specific config for Selenium [hub and node][hub-and-node].
-
 Sample Setup
 ------------
  
@@ -21,29 +19,9 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 
         java -jar selenium-server-standalone-3.8.1.jar -role hub
 
-3. Prepare JSON file with node config - `node-config.json`:
+3. Start Selenium Grid node:
 
-        {
-          "capabilities": [
-            {
-              "acceptInsecureCerts": true,
-              "browserName": "firefox",
-              "marionette": false,
-              "platform": "WIN8_1"
-            }
-          ],
-          "hub": "http://localhost:4444"
-        }
-
-4. Start Selenium Grid node:
-
-        java -Dwebdriver.firefox.marionette=false -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.8.1.jar  -role node -nodeConfig node-config.json
-
-#### Without the JSON config file
-
-Instead of Selenium node configuration in JSON file we could specify provided capabilities with `-hub` and `-browser` parameters:
-
-        java [...] -jar selenium-server-standalone-3.8.1.jar -role node -hub "http://localhost:4444" -browser "acceptInsecureCerts=true,browserName=firefox,marionette=false,platform=WIN8_1"
+        java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.8.1.jar -role node -hub "http://localhost:4444" -browser "browserName=firefox,version=38"
 
 [selenium-grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
 [geckodriver]: https://github.com/mozilla/geckodriver
