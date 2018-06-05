@@ -17,14 +17,14 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 1. Download [selenium standalone jar][selenium-standalone]
 2. Start Selenium Grid hub:
 
-        java -jar selenium-server-standalone-3.8.1.jar -role hub
+        java -jar selenium-server-standalone-3.12.0.jar -role hub
 
 3. Start Selenium Grid node:
 
-        java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.8.1.jar -role node -hub "http://localhost:4444" -browser "browserName=firefox,version=38"
+        java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register/" -browser "browserName=firefox,version=38"
 
 [selenium-grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
 [geckodriver]: https://github.com/mozilla/geckodriver
 [supported-firefoxen]: https://github.com/mozilla/geckodriver#supported-firefoxen
 [hub-and-node]: http://www.seleniumhq.org/docs/07_selenium_grid.jsp#selenium-grid-2-0
-[selenium-standalone]: http://selenium-release.storage.googleapis.com/3.8/selenium-server-standalone-3.8.1.jar
+[selenium-standalone]: https://selenium-release.storage.googleapis.com/3.12/selenium-server-standalone-3.12.0.jar
