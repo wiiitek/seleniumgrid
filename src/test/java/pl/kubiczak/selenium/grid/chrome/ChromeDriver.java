@@ -1,4 +1,4 @@
-package pl.kubiczak.selenium.grid.firefox.without.marionette;
+package pl.kubiczak.selenium.grid.chrome;
 
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertThat;
@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class SeleniumGridTest {
+public class ChromeDriver {
 
   private static final String HUB_URL = "http://localhost:4444/wd/hub";
 
@@ -24,7 +24,9 @@ public class SeleniumGridTest {
   public void retrieveWebDriver() throws MalformedURLException {
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("marionette", false);
+    capabilities.setBrowserName("chrome");
+
+    //capabilities.setVersion("67");
 
     webDriver = new RemoteWebDriver(new URL(HUB_URL), capabilities);
   }
@@ -36,7 +38,7 @@ public class SeleniumGridTest {
     WebElement mainEl = webDriver.findElement(By.cssSelector("div.string-major"));
     String browserInfo = mainEl.getText();
 
-    assertThat(browserInfo, startsWith("Firefox 38"));
+    assertThat(browserInfo, startsWith("Chrome"));
   }
 
   @After

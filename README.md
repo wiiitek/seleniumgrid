@@ -12,7 +12,7 @@ Sample Setup
  
 ### Web Driver usage in JAVA code
 
-Set `"marionette"` capability of required web driver to `false` (see [SeleniumGridTest](src/test/java/pl/kubiczak/selenium/grid/firefox/without/marionette/SeleniumGridTest.java#L27) class).
+Set `"marionette"` capability of required web driver to `false` (see [SeleniumGridTest](src/test/java/pl/kubiczak/selenium/grid/firefox/WithoutMarionette.java#L27) class).
 
 ### Selenium Grid setup
 
@@ -21,9 +21,19 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 
         java -jar selenium-server-standalone-3.12.0.jar -role hub
 
-3. Start Selenium Grid node with old Firefox:
+3. Start Selenium Grid node
 
-        java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register/" -browser "browserName=firefox,version=38"
+   1. with old Firefox:
+
+          java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register/" -browser "browserName=firefox,version=38"
+
+   2. with new Firefox:
+
+          java -Dwebdriver.gecko.driver="D:/Selenium/geckodriver.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register" -browser "browserName=firefox,version=60"
+
+   3. with new Chrome:
+
+          java -Dwebdriver.chrome.driver="D:/Selenium/chromedriver.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register" -browser "browserName=chrome,version=ANY" 
 
 
 [selenium-grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
