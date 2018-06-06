@@ -25,7 +25,7 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 
    1. with old Firefox:
 
-          java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register/" -browser "browserName=firefox,version=38"
+          java -Dwebdriver.firefox.bin="D:/soft/Firefox38.6/firefox.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register/" -browser "browserName=firefox,version=38,marionette=false"
 
    2. with new Firefox:
 
