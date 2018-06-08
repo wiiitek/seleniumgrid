@@ -35,9 +35,19 @@ Set `"marionette"` capability of required web driver to `false` (see [SeleniumGr
 
           java -Dwebdriver.chrome.driver="D:/Selenium/chromedriver.exe" -jar selenium-server-standalone-3.12.0.jar -role node -hub "http://localhost:4444/grid/register" -browser "browserName=chrome,version=ANY" 
 
+### Browsermob setup
+
+1. Download [Browsermob]
+2. Unzip the package and `cd browsermob-proxy-2.1.4/bin`
+3. Start it with default configuration (port 8080):
+
+        ./browsermob-proxy
+
 
 [selenium-grid]: https://github.com/SeleniumHQ/selenium/wiki/Grid2
 [geckodriver]: https://github.com/mozilla/geckodriver
 [supported-firefoxen]: https://github.com/mozilla/geckodriver#supported-firefoxen
 [hub-and-node]: http://www.seleniumhq.org/docs/07_selenium_grid.jsp#selenium-grid-2-0
 [selenium-standalone]: https://selenium-release.storage.googleapis.com/3.12/selenium-server-standalone-3.12.0.jar
+[Browsermob]: https://bmp.lightbody.net/
+
